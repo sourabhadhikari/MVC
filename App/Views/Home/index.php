@@ -9,7 +9,8 @@
     <?php 
         // $query="SELECT * FROM posts";
         // $select_all_posts_query = mysqli_query($connection, $query);
-        // print_r($fetch_posts);
+        //print_r($fetch_posts);
+        // $fetch_post=$fetch_post[0];
         foreach($fetch_posts as $row){
             $post_id=$row['post_id'];
             $post_title = $row['post_title'];
@@ -27,10 +28,10 @@
             ?>
             
     
-        <h1 class="page-header">
+        <!-- <h1 class="page-header">
             Page Heading
         <small>Secondary Text</small>
-        </h1>
+        </h1> -->
 
         <!-- First Blog Post -->
         <h2>

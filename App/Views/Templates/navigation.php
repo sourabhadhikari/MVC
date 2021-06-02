@@ -21,16 +21,22 @@
                 //     $query = "SELECT * FROM categories";
                 //     $select_all_categories_query = mysqli_query($connection, $query);
                     
-                    
+                    error_reporting(0); 
                     foreach($nav_variables as $row){
                         $cat_title = $row['cat_title'];
-
-                        echo "<li><a href='#'>{$cat_title}</a></li>";
+                        $cat_id=$row['cat_id'];
+                        ?>
+                        <li><a href="Category&id=<?php echo $cat_id; ?>"><?php echo $cat_title;?></a></li>
+                        <?php
+                        //echo "<li><a href='#'>{$cat_title}</a></li>";
                     }
                 ?>
                     <li>
-                        <a href="admin">Admin</a>
+                        <a href="//localhost/AddPost">Add Post</a>
                     </li>
+                    <!-- <li>
+                        <a href="admin/home/index">Admin</a>
+                    </li> -->
                     <!-- <li>
                         <a href="#">Services</a>
                     </li>

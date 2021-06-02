@@ -16,6 +16,7 @@ class Home extends \Core\Controller{
         $nav_variables = Basic::navVariables();
         
         View::render('Templates/navigation.php',['nav_variables'=>$nav_variables]);
+        $fetch_posts=[];
         $fetch_posts= Basic::fetchPosts();
         View::render('Home/index.php',['fetch_posts'=>$fetch_posts]);
         

@@ -28,6 +28,8 @@ $router = new Core\Router();
 // Add the routes
 $router->add('', ['controller' => 'Home', 'action' => 'index']);
 $router->add('posts', ['controller' => 'Posts', 'action' => 'index']);
+$router->add('addPost', ['controller' => 'AddPost', 'action' => 'index']);
+$router->add('category', ['controller' => 'Category', 'action' => 'index']);
 //$router->add('posts/new', ['controller' => 'Posts', 'action' => 'new']);
 $router->add('{controller}/{action}');
 $router->add('admin/{controller}/{action}',['namespace'=>'Admin']);

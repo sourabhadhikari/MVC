@@ -16,6 +16,17 @@ class Post extends \Core\Model{
         return $result;
         
     }
+    public static function categoryPost(){
+        $connection=mysqli_connect('localhost','root','','cms');
+        if(isset($_GET['id'])){
+            $the_post_id=$_GET['id'];
+        }
+        
+        $query = "SELECT * FROM posts WHERE post_category_id=$the_post_id";
+        $select_all_posts_query = mysqli_query($connection, $query);
+        $result=mysqli_fetch_assoc($select_all_posts_query);
+        return $result;
+    }
     public static function postComment(){
         $connection=mysqli_connect('localhost','root','','cms');
             if (isset($_POST['create_comment'])) {
@@ -55,6 +66,34 @@ class Post extends \Core\Model{
         }  
         
 
+    }
+    
+    public static function addPost(){
+            $connection=mysqli_connect('localhost','root','','cms');
+            $post_title= $_POST['post_title'];
+            $post_author= $_POST['post_author'];
+            $post_category_id= $_POST['post_category'];
+            $post_status= $_POST['post_status'];
+            $post_image= $_FILES['post_image']['name'];
+            $post_image_temp= $_FILES['post_image']['tmp_name'];
+            $post_tags= $_POST['post_tags'];
+            $post_date= date('d-m-y');
+            $post_comment_count=4;
+            $post_content=$_POST['post_content'];
+    
+            // move_uploaded_file($post_image_temp, "../Images/$post_image");
+            $query = "INSERT INTO posts(post_category_id, post_title, post_author, post_date,post_image,post_content,post_tags,post_comment_count,post_status) ";
+                 
+            $query .= "VALUES({$post_category_id},'{$post_title}','{$post_author}',now(),'{$post_image}','{$post_content}','{$post_tags}', '{$post_comment_count}','{$post_status}') "; 
+                   
+            $create_post_query = mysqli_query($connection, $query);
+            
+            if(!$create_post_query){
+                die('commnent count failed'.mysqli_error($connection));
+            }
+            
+            
+        
     }
 }
 

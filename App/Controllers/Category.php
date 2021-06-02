@@ -5,7 +5,7 @@ use \Core\View;
 use App\Models\Basic;
 use App\Models\Post;
 
-class Posts extends \Core\Controller{
+class Category extends \Core\Controller{
     public function indexAction(){
         
         View::render('Templates/header.php');
@@ -18,7 +18,7 @@ class Posts extends \Core\Controller{
         $fetch_posts= Basic::fetchPosts();
         View::render('Templates/navigation.php',['nav_variables'=>$nav_variables]);
         if(isset($_GET['id'])){
-            $view_post=Post::viewPost();
+            $view_post=Post::categoryPost();
        
             View::render('Home/post.php',['view_post'=>$view_post]);
 

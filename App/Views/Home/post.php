@@ -18,17 +18,17 @@
             //     $post_content = $row['post_content'];
             
             // 
-            $post_title = $view_post['post_title'];
+                $post_title = $view_post['post_title'];
                 $post_author = $view_post['post_author'];
                 $post_date = $view_post['post_date'];
                 $post_image = $view_post['post_image'];
                 $post_content = $view_post['post_content'];
             ?>
 
-                <h1 class="page-header">
+                <!-- <h1 class="page-header">
                     Page Heading
                     <small>Secondary Text</small>
-                </h1>
+                </h1> -->
 
                 <!-- First Blog Post -->
                 <h2>
